@@ -118,8 +118,6 @@ public class TareaAdapter extends ArrayAdapter {
                     Tarea post = new Tarea(
                             objeto.getString("titulo"),
                             objeto.getString("descripcion"));
-
-
                     posts.add(post);
 
                 } catch (JSONException e) {

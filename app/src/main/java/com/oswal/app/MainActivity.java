@@ -1,5 +1,6 @@
 package com.oswal.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     ArrayAdapter adapter;
+    public Methods call = new Methods();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if(Methods.HayInternet(view.getContext())){
+                    Intent intent = new Intent(view.getContext(), Form.class);
+                    finish();
+                    startActivity(intent);
+                }else {
+                    Snackbar.make(view, "no hay internet", Snackbar.LENGTH_LONG)
+                            .setAction("Cerrar", null).show();
+                }
             }
         });
 

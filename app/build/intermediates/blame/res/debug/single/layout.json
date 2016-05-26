@@ -108,6 +108,10 @@
         "source": "/home/osw4l/Desktop/app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "/home/osw4l/Desktop/app/app/build/intermediates/res/merged/debug/layout/activity_form.xml",
+        "source": "/home/osw4l/Desktop/app/app/src/main/res/layout/activity_form.xml"
+    },
+    {
         "merged": "/home/osw4l/Desktop/app/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/home/osw4l/Desktop/app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_bar.xml"
     },

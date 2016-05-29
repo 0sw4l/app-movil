@@ -29,7 +29,7 @@ public class TareaAdapter extends ArrayAdapter {
     // Atributos
     private RequestQueue requestQueue;
     JsonObjectRequest jsArrayRequest;
-    private static final String URL_BASE = "http://192.168.2.3:8005/tareas/?format=json";
+    private static final String URL_BASE = "http://192.168.56.1:8005/tareas/?format=json";
     private static final String TAG = "TareaAdapter";
     List<Tarea> items;
 
@@ -130,5 +130,12 @@ public class TareaAdapter extends ArrayAdapter {
         }
 
         return posts;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        items.get(position);
+
+        return super.getItem(position);
     }
 }

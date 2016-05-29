@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Obtener instancia de la lista
+
         listView= (ListView) findViewById(R.id.listView);
 
-        // Crear y setear adaptador
-        adapter = new TareaAdapter(this);
-        listView.setAdapter(adapter);
+        fillData();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     startActivity(intent);
                 }else {
-                    Snackbar.make(view, "no hay internet", Snackbar.LENGTH_LONG)
-                            .setAction("Cerrar", null).show();
+                    downAlert(view);
                 }
             }
         });
@@ -66,9 +64,30 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            fillData();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void downAlert(View view){
+        Snackbar.make(view, "no hay internet", Snackbar.LENGTH_LONG)
+                .setAction("Cerrar", null).show();
+    }
+
+    public void fillData(){
+        // Crear y setear adaptador
+        if (Methods.HayInternet(this)){
+            setData();
+        }
+        else
+            downAlert(listView);
+    }
+
+    public void setData(){
+        adapter = new TareaAdapter(this);
+        listView.setAdapter(adapter);
+    }
+
 }

@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class Form extends AppCompatActivity implements fill{
 
      Button mBack, mGuardar;
-    private static final String URL_BASE = "http://192.168.2.3:8005/tareas/?format=json";
+    private static final String URL_BASE = "http://192.168.56.1:8005/tareas/?format=json";
      EditText Titulo, Descripcion;
      Spinner Categoria;
     private RequestQueue requestQueue;
@@ -39,7 +39,7 @@ public class Form extends AppCompatActivity implements fill{
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                fin();
             }
         });
 
@@ -72,9 +72,7 @@ public class Form extends AppCompatActivity implements fill{
                                 public void onResponse(JSONObject response) {
                                     // Manejo de la respuesta
                                     Toast.makeText(Form.this, "la data fue enviada"+response, Toast.LENGTH_LONG).show();
-                                    finish();
-                                    Intent intent = new Intent(Form.this, MainActivity.class);
-                                    startActivity(intent);
+                                    fin();
                                 }
                             },
                             new Response.ErrorListener() {
@@ -98,5 +96,12 @@ public class Form extends AppCompatActivity implements fill{
         if (c.length() > 0)
             return true;
         return false;
+    }
+
+
+    public void fin(){
+        finish();
+        Intent intent = new Intent(Form.this, MainActivity.class);
+        startActivity(intent);
     }
 }
